@@ -6,6 +6,7 @@ Vue.use(VueRouter)
 import Posts from '../pages/Posts.index.vue'
 import Post from '../pages/Posts.show.vue'
 import Contact from '../pages/Contact.vue'
+import NotFound from '../pages/404.vue'
 
 const routes = [
     {
@@ -23,6 +24,10 @@ const routes = [
         name: 'contact',
         component: Contact
     }, 
+    {
+        path: '/*',
+        component: NotFound
+    }
 ] 
     
 

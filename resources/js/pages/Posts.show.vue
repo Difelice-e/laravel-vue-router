@@ -36,7 +36,8 @@ export default {
                 this.loading = false
             })
             .catch(err => {
-                console.warn( err)
+                console.warn(err)
+                this.$router.push('/404')
             })
         }
     },
