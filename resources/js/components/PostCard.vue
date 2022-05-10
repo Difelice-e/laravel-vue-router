@@ -7,6 +7,10 @@
           <ul class="tags flex flex-wrap gap-4 items-center">
               <li class="tag bg-white/30 rounded-full block px-4 py-1 text-xs" v-for="tag in post.tags" :key="tag.id">{{tag.name}}</li>
           </ul>
+          <router-link 
+          class="bg-orange-400 text-sm rounded-md p-2 my-2"
+          tag="button" 
+          :to="{ name: 'posts.show', params: {slug: post.slug} }">Leggi Articolo</router-link>
       </div>
   </div>
 </template>

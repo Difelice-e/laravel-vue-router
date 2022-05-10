@@ -2,10 +2,16 @@
   <div class="app bg-zinc-800 text-white">
     <header>
       <nav>
-        <ul>
+        <ul class="flex items-center gap-4 p-4">
           <li>Home</li>
-          <li>Posts</li>
+          <li>
+            <router-link to="/posts">Posts</router-link>
+          </li>
           <li>Categories</li>
+          <li>
+            <router-link to="/contact">Contacts</router-link>
+            <!-- <router-link :to="{ name: 'contact' }">Contacts</router-link> -->
+          </li>
         </ul>
       </nav>
     </header>
