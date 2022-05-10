@@ -2040,11 +2040,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      post: null
+    };
+  },
   mounted: function mounted() {
     console.log(this.$route);
   },
-  beforeMount: function beforeMount() {// axios.get(`/api/posts/${this.$route.params.slug}`)
+  beforeMount: function beforeMount() {
+    var _this = this;
+
+    axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (res) {
+      var post = res.data.post;
+      _this.post = post;
+    })["catch"](function (err) {
+      console.warn(err);
+    });
   }
 });
 
@@ -3404,7 +3418,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "py-10" }, [
-    _vm._v("\n    " + _vm._s(_vm.$route.params.slug) + "\n"),
+    _vm._v("\n    " + _vm._s(_vm.$route.params.slug) + "\n    "),
+    _vm.post ? _c("h1", [_vm._v(_vm._s(_vm.post.title))]) : _vm._e(),
   ])
 }
 var staticRenderFns = []

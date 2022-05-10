@@ -57,9 +57,9 @@ class Postcontroller extends Controller
     {
         $post = Post::with(['category','tags'])->where('slug',$slug)->first();
 
-        if( $posts && $posts->published_at) {
+        if( $post && $post->published_at) {
             return response()->json([
-                'posts' => $post,
+                'post' => $post,
                 'success' => true
             ]);
         }
