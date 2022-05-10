@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="py-12">
       pagina contatti
   </div>
 </template>

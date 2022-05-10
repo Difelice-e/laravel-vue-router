@@ -10,7 +10,7 @@
       </nav>
     </header>
 
-    <PostsGrid />
+    <router-view></router-view>
 
     <footer>
       &copy; Boolpress 2022
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import PostsGrid from './Posts.index.vue'
+import PostsGrid from '../pages/Posts.index.vue'
 
 export default {
     components: {
