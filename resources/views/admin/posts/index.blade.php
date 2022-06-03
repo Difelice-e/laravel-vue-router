@@ -22,12 +22,18 @@
           </tr>
         </thead>
         <tbody>
-           @foreach($posts as $post)
+          @foreach($posts as $post)
           <tr>
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->slug}}</td>
-            <td>{{$post->user->name}}</td>
+            
+              <td>
+                @if($post->user)
+                <a href="{{route('admin.user.post',$post->user->id)}}">{{$post->user->name}}</a>
+                @endif
+              </td>
+            
             <td>{{$post->category ? $post->category->name : '-'}}</td>
             {{-- checkbox dei tag  --}}
             <td>
@@ -47,11 +53,11 @@
 
             {{-- pulsanti modifica e eliminazione  --}}
             <td>
-                <a class="btn btn-small btn-warning" href="{{route('admin.posts.edit', $post)}}">Edit</a>
+                <a class="btn btn-small w-100 btn-warning" href="{{route('admin.posts.edit', $post)}}">Edit</a>
                 <form action="{{route('admin.posts.destroy',$post)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-small btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                <button type="submit" class="btn btn-small w-100 btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
                 </form>
             </td>
           </tr>

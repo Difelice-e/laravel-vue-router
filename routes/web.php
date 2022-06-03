@@ -31,7 +31,7 @@ Route::middleware('auth')
 
         Route::resource('users', 'UserController');
 
-        Route::get('/users/{user}/posts', 'UserPostController@index');
+        Route::get('/users/{user}/posts', 'UserPostController@index')->name('user.post');
 });
 
 // Route::get('{any?}',function() {
